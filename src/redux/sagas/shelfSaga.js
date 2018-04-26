@@ -5,6 +5,7 @@ function* shelfSaga(){
     yield takeEvery('FETCH_SHELF', getShelfItemSaga);
     yield takeEvery('ADD_SHELF_ITEM', addShelfItemSaga);
     yield takeEvery('DELETE_SHELF_ITEM', deleteShelfItemSaga);
+    yield takeEvery('FETCH_COUNT', getCountSaga);
 }
 
 //sends get request to server and will receive shelf items from the server and store it in shelfResponse.data
@@ -49,6 +50,22 @@ function* deleteShelfItemSaga(action){
         })
     }catch (error){
         console.log('ERROR IN DELETE SAGA: ', error)
+    }
+}
+
+//sends get requestto server and will receive the total amount of items and the total amount of users from the database
+function* getCountSaga(action){
+    try{
+        const getCount = yield call(axios.get, `/api/shelf/count`)
+
+        //gives the total count to the reducer that receives the 'SET_COUNT' action
+        yield put({
+            type: 'SET_COUNT',
+            payload: getCount.data
+        })
+    } catch (error) {
+        console.log('Error in getting total count: ', error);
+        
     }
 }
 
