@@ -2,8 +2,8 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* shelfSaga(){
-    takeEvery('FETCH_SHELF', getShelfItemSaga);
-    takeEvery('ADD_SHELFITEM', addShelfItemSaga);
+    yield takeEvery('FETCH_SHELF', getShelfItemSaga);
+    yield takeEvery('ADD_SHELF_ITEM', addShelfItemSaga);
 }
 
 function* getShelfItemSaga(action){

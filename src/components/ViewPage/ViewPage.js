@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Nav from '../../components/Nav/Nav';
 import { fetchUser } from '../../redux/actions/userActions';
+import ShelfItem from "./ViewPageItem"
 
 const mapStateToProps = state => ({
     state
@@ -24,15 +25,17 @@ class ViewPage extends Component {
       }
 
     render() {
-        console.log(this.props.state.user);
-        
+        console.log(this.props.state.shelfReducer);
+        let shelfItems = this.props.state.shelfReducer.map((item)=>{
+            return (<ShelfItem item={item}/>)
+        })
 
 
         return (
             <div>
                 <Nav />
                 <h1>ViewPage</h1>
-
+                {shelfItems}
             </div>
         )
     }
@@ -42,4 +45,4 @@ class ViewPage extends Component {
 
 
 
-export default connect(mapStateToProps) (ViewPage);
+export default connect(mapStateToProps)(ViewPage);
