@@ -38,7 +38,7 @@ class ViewPage extends Component {
 
     render() {
         console.log(this.props.state.shelfReducer);
-        let shelfItems = this.props.state.shelfReducer.map((item)=>{
+        let shelfItems = this.props.state.shelfReducer.shelfReducer.map((item)=>{
             return (<ShelfItem  key={item.id} 
                                 item={item}
                                 deleteItem={this.deleteItem}/>)
