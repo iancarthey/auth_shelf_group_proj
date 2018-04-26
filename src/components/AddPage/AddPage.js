@@ -9,19 +9,13 @@ class AddPage extends Component {
     constructor(props){
         super(props); 
         this.state = {
-            item: '',
             description: '',
             url: ''
         }
     }
 
     
-    handleChangeItem = (event) => {
-        console.log('change', event.target.value);
-        this.setState({
-            item: event.target.value
-        })
-    }
+  
 
     handleChangeDescription = (event) => {
         this.setState({
@@ -53,7 +47,6 @@ class AddPage extends Component {
            <div>
                <h3>Add an Item</h3>
                <form onSubmit={this.addItem}>
-                   <input type="text" onChange={this.handleChangeItem} placeholder="Item"></input>
                    <input type="text" onChange={this.handleChangeDescription} placeholder="Description"></input>
                    <input type="text" onChange={this.handleChangeUrl} placeholder="url"></input>
                    <input type="submit" value="Add Item"></input>
