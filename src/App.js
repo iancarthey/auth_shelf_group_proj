@@ -12,7 +12,7 @@ import RegisterPage from './components/RegisterPage/RegisterPage';
 import UserPage from './components/UserPage/UserPage';
 
 // THESE ARE THE ROUTES FOR OUR NEW PAGES - BRING THEM BACK ONLINE ONCE THE VIEW EXIST
-  // import ViewPage from './components/ViewPage/ViewPage';
+  import ViewPage from './components/ViewPage/ViewPage';
   // import AddPage from './components/AddPage/AddPage';
   // import TotalPage from './components/TotalPage/TotalPage';
 
@@ -39,18 +39,19 @@ const App = () => (
         />
 
         {/* THESE ARE THE ROUTES FOR OUR NEW PAGES - BRING THEM BACK ONLINE ONCE THE VIEW EXIST */}
-        {/* <Route
+        <Route
           path="/view"
           component={ViewPage}
-        />
-        <Route
+        /> 
+        
+        {/* <Route
           path="/add"
           component={AddPage}
         />
         <Route
           path="/total"
           component={TotalPage}
-        /> */}
+        />  */}
 
 
       </Switch>
