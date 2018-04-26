@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Nav from '../../components/Nav/Nav';
 import './ViewPage.css'
 
 const mapStateToProps = state => ({
@@ -23,7 +22,7 @@ class ViewPageItem extends Component {
         return (
             <div className="viewItem">
                 <p>{this.props.item.description}</p>
-                <img src={this.props.item.image_url} height='200' width='200'/>
+                <img src={this.props.item.image_url} height='200' width='200' alt={this.props.item.description}/>
                 <button onClick={this.handleDeleteClick}>DELETE</button>
             </div>
         )

@@ -20,6 +20,7 @@ class ViewPage extends Component {
                 user: this.props.state.user.id
             }
         });
+      
     }
 
     componentDidMount() {

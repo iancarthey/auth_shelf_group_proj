@@ -41,6 +41,7 @@ router.delete('/:id', (req, res) => {
         pool.query(queryText, [req.params.id])
         .then((result)=> {
             console.log('success DELETE /api/shelf')
+            res.sendStatus(200);
         }).catch((err)=>{
             console.log('ERROR DELETE /api/shelf', err)
             res.sendStatus(500);
@@ -49,8 +50,6 @@ router.delete('/:id', (req, res) => {
     else {
         res.sendStatus(403); 
     }
-    
-
 });
 
 
