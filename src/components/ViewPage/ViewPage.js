@@ -11,6 +11,18 @@ const mapStateToProps = state => ({
 
 class ViewPage extends Component {
 
+    deleteItem = (item) => {
+        console.log('reached deleteItem', item, this.props.state.user);
+        this.props.dispatch({
+            type: 'DELETE_SHELF_ITEM',
+            payload: {
+                item: item,
+                user: this.props.state.user.id
+            }
+        });
+      
+    }
+
     componentDidMount() {
         this.props.dispatch(fetchUser());
         this.props.dispatch({
@@ -27,7 +39,9 @@ class ViewPage extends Component {
     render() {
         console.log(this.props.state.shelfReducer);
         let shelfItems = this.props.state.shelfReducer.map((item)=>{
-            return (<ShelfItem item={item}/>)
+            return (<ShelfItem  key={item.id} 
+                                item={item}
+                                deleteItem={this.deleteItem}/>)
         })
 
 

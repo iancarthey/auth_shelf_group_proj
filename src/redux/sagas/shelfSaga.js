@@ -9,6 +9,7 @@ function* shelfSaga(){
 
 //sends get request to server and will receive shelf items from the server and store it in shelfResponse.data
 function* getShelfItemSaga(action){
+    console.log('getShelfItemSaga');
     try{
         const shelfResponse = yield call(axios.get, '/api/shelf')
 
@@ -26,7 +27,7 @@ function* getShelfItemSaga(action){
 //sends post request to server to post a shelf item entered by user
 function* addShelfItemSaga(action){
     try{
-        yield call(axios.post, '/api/shelf', action.payload);
+        yield call(axios.post, '/api/shelf', action.payload)
 
         //uploads DOM with newly posted item via action.type 'FETCH_SHELF'
         yield put({
@@ -41,7 +42,7 @@ function* addShelfItemSaga(action){
 //authenticate the user and in order for the user to be able to delete only items that he or she has posted
 function* deleteShelfItemSaga(action){
     try{   
-        yield call(axios.delete, `/api/shelf/${action.payload.item.id}`, action.payload.user);
+        yield call(axios.delete, `/api/shelf/${action.payload.item.id}`, action.payload.user)
 
         //uploads DOM with the requested item deleted via action.type 'FETCH_SHELF'
         yield put({
