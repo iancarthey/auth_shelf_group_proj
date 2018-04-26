@@ -10,8 +10,14 @@ import Header from './components/Header/Header';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import UserPage from './components/UserPage/UserPage';
-import InfoPage from './components/InfoPage/InfoPage';
+
+
+// THESE ARE THE ROUTES FOR OUR NEW PAGES - BRING THEM BACK ONLINE ONCE THE VIEW EXIST
+  import ViewPage from './components/ViewPage/ViewPage';
+ // import TotalPage from './components/TotalPage/TotalPage';
+
 import AddPage from './components/AddPage/AddPage';
+
 
 import './styles/main.css';
 
@@ -35,10 +41,9 @@ const App = () => (
         />
 
         {/* THESE ARE THE ROUTES FOR OUR NEW PAGES - BRING THEM BACK ONLINE ONCE THE VIEW EXIST */}
-        {/* <Route
+        <Route
           path="/view"
           component={ViewPage}
-        /> */}
         <Route
           path="/add"
           component={AddPage}
@@ -46,7 +51,7 @@ const App = () => (
         {/* <Route
           path="/total"
           component={TotalPage}
-        /> */}
+        />  */}
 
 
       </Switch>
