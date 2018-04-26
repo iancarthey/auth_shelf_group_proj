@@ -15,18 +15,33 @@ class AddPage extends Component {
         }
     }
 
-
-
-    handleChange = (event) => {
-        this.setState
+    
+    handleChangeItem = (event) => {
+        console.log('change', event.target.value);
+        this.setState({
+            item: event.target.value
+        })
     }
+
+    handleChangeDescription = (event) => {
+        this.setState({
+            description: event.target.value
+        })
+    }
+
+    handleChangeUrl = (event) => {
+        this.setState({
+            url: event.target.value
+        })
+    }
+
 
     // adds an item on click
     addItem = (event) =>{
         console.log('Click ADD', this.state);
         event.preventDefault();
         this.props.dispatch({
-            type: 'ADD_ITEM',
+            type: 'ADD_SHELF_ITEM',
             payload: this.state
         })
     }
@@ -38,9 +53,9 @@ class AddPage extends Component {
            <div>
                <h3>Add an Item</h3>
                <form onSubmit={this.addItem}>
-                   <input onChange={this.handleChange}>Item:</input>
-                   <input onChange={this.handleChange}>Description:</input>
-                   <input onChange={this.handleChange}>URL:</input>
+                   <input type="text" onChange={this.handleChangeItem} placeholder="Item"></input>
+                   <input type="text" onChange={this.handleChangeDescription} placeholder="Description"></input>
+                   <input type="text" onChange={this.handleChangeUrl} placeholder="url"></input>
                    <input type="submit" value="Add Item"></input>
                </form>
            </div> 

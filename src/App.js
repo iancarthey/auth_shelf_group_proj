@@ -33,10 +33,22 @@ const App = () => (
           path="/user"
           component={UserPage}
         />
+
+        {/* THESE ARE THE ROUTES FOR OUR NEW PAGES - BRING THEM BACK ONLINE ONCE THE VIEW EXIST */}
+        {/* <Route
+          path="/view"
+          component={ViewPage}
+        /> */}
         <Route
-          path="/info"
-          component={InfoPage}
+          path="/add"
+          component={AddPage}
         />
+        {/* <Route
+          path="/total"
+          component={TotalPage}
+        /> */}
+
+
       </Switch>
     </Router>
   </div>
