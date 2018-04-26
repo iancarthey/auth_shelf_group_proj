@@ -10,3 +10,4 @@ CREATE TABLE "item" (
     "image_url" VARCHAR (2083),
     "person_id" INT REFERENCES "person"
 );
+
