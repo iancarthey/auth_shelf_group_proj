@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect  } from 'react-redux';
+import Nav from '../../components/Nav/Nav';
 
 const mapStateToProps = reduxState =>({
     reduxState
@@ -45,6 +46,7 @@ class AddPage extends Component {
     render(){
         return(
            <div>
+               <Nav />
                <h3>Add an Item</h3>
                <form onSubmit={this.addItem}>
                    <input type="text" onChange={this.handleChangeDescription} placeholder="Description"></input>
