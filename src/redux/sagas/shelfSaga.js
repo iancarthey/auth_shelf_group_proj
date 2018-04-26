@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function* shelfSaga(){
     takeEvery('FETCH_SHELF', getShelfItemSaga);
-    takeEvery('ADD_SHELFITEM', addShelfItemSaga);
+    takeEvery('ADD_SHELF_ITEM', addShelfItemSaga);
 }
 
 function* getShelfItemSaga(action){
