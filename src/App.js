@@ -10,12 +10,8 @@ import Header from './components/Header/Header';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import UserPage from './components/UserPage/UserPage';
-
-// THESE ARE THE ROUTES FOR OUR NEW PAGES - BRING THEM BACK ONLINE ONCE THE VIEW EXIST
-  // import ViewPage from './components/ViewPage/ViewPage';
-  // import AddPage from './components/AddPage/AddPage';
-  // import TotalPage from './components/TotalPage/TotalPage';
-
+import InfoPage from './components/InfoPage/InfoPage';
+import AddPage from './components/AddPage/AddPage';
 
 import './styles/main.css';
 
@@ -42,12 +38,12 @@ const App = () => (
         {/* <Route
           path="/view"
           component={ViewPage}
-        />
+        /> */}
         <Route
           path="/add"
           component={AddPage}
         />
-        <Route
+        {/* <Route
           path="/total"
           component={TotalPage}
         /> */}
