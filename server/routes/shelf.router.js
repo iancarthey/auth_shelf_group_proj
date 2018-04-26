@@ -6,15 +6,20 @@ const router = express.Router();
  * Get all of the items on the shelf
  */
 router.get('/', (req, res) => {
-    console.log('GET router reached')
-    const queryText = `SELECT * FROM item;`;
-    pool.query(queryText).then((result)=> {
-        console.log('shelf GET success', result)
-        res.send(result.rows)
-    }).catch((err)=>{
-        console.log('ERROR shelf GET route', err)
-        res.sendStatus(500);
-    });
+    if (req.isAuthenticated()) {
+        console.log('GET router reached')
+        const queryText = `SELECT * FROM item;`;
+        pool.query(queryText).then((result)=> {
+            console.log('shelf GET success', result)
+            res.send(result.rows)
+        }).catch((err)=>{
+            console.log('ERROR shelf GET route', err)
+            res.sendStatus(500);
+        });
+    }
+    else {
+        res.sendStatus(403); 
+    }
 });
 
 
@@ -30,6 +35,21 @@ router.post('/', (req, res) => {
  * Delete an item if it's something the logged in user added
  */
 router.delete('/:id', (req, res) => {
+    if(req.isAuthenticated()) {
+        console.log('in DELETE /api/shelf', req.params.id);
+        const queryText = `DELETE FROM item WHERE id = $1`; 
+        pool.query(queryText, [req.params.id])
+        .then((result)=> {
+            console.log('success DELETE /api/shelf')
+        }).catch((err)=>{
+            console.log('ERROR DELETE /api/shelf', err)
+            res.sendStatus(500);
+        });
+    }
+    else {
+        res.sendStatus(403); 
+    }
+    
 
 });
 

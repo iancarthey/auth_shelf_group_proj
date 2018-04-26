@@ -44,6 +44,8 @@ const App = () => (
         <Route
           path="/view"
           component={ViewPage}
+          />
+          
         <Route
           path="/add"
           component={AddPage}
