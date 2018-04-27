@@ -15,8 +15,12 @@ class AddPage extends Component {
         }
     }
 
-    
-  
+    componentDidUpdate() {
+        if (!this.props.state.user.isLoading && this.props.state.user.userName === null) {
+          this.props.history.push('home');
+        }
+      }
+
 
     handleChangeDescription = (event) => {
         this.setState({
