@@ -75,8 +75,18 @@ router.put('/:id', (req, res) => {
  * they have added to the shelf
  */
 router.get('/count', (req, res) => {
-
-});
+    queryText = `SELECT person.username,
+                 COUNT(person_id) FROM item RIGHT JOIN person
+                 ON item.person_id = person.id GROUP BY person.*,
+                 person_id, person.username;`
+    pool.query(queryText).then((result)=>{
+        console.log('shelf/count GET route', result);
+        res.send(result.rows);
+    }).catch((err)=>{
+        console.log('ERROR shelf/count GET route', err);
+        res.sendStatus(500);
+    }); // end pool query
+}); // end /count GET
 
 
 /**
