@@ -51,12 +51,10 @@ const App = () => (
           path="/add"
           component={AddPage}
         />
-        {/* <Route
+        <Route
           path="/total"
           component={TotalPage}
-        />  */}
-
-
+        /> 
       </Switch>
     </Router>
   </div>

@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { connect  } from 'react-redux';
 import Nav from '../../../components/Nav/Nav';
+import './TotalItemview.css';
 
 class TotalItem extends Component{
     render(){
         return(
-            <div>
+            <div className='viewItem'>
                 <li>
                 {this.props.item.username}
-                </li>
-                <li>
                 {this.props.item.count}
                 </li>
             </div>
