@@ -14,9 +14,10 @@ import UserPage from './components/UserPage/UserPage';
 
 // THESE ARE THE ROUTES FOR OUR NEW PAGES - BRING THEM BACK ONLINE ONCE THE VIEW EXIST
   import ViewPage from './components/ViewPage/ViewPage';
- // import TotalPage from './components/TotalPage/TotalPage';
-
+import TotalPage from './components/TotalPage/TotalPage';
 import AddPage from './components/AddPage/AddPage';
+
+
 
 
 import './styles/main.css';
