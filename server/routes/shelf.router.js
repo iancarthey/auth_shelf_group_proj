@@ -6,7 +6,7 @@ const router = express.Router();
  * Get all of the items on the shelf
  */
 router.get('/', (req, res) => {
-    if (req.isAuthenticated()) {
+    // if (req.isAuthenticated()) {
         console.log('GET router reached')
         const queryText = `SELECT * FROM item;`;
         pool.query(queryText).then((result)=> {
@@ -16,10 +16,10 @@ router.get('/', (req, res) => {
             console.log('ERROR shelf GET route', err)
             res.sendStatus(500);
         });
-    }
-    else {
-        res.sendStatus(403); 
-    }
+    // }
+    // else {
+    //     res.sendStatus(403); 
+    // }
 });
 
 

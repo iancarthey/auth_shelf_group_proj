@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Nav from '../../components/Nav/Nav';
 import { fetchUser } from '../../redux/actions/userActions';
-import ShelfItem from "./ViewPageItem"
+import ViewPageItem from "./ViewPageItem"
 
 const mapStateToProps = state => ({
     state
@@ -10,6 +10,12 @@ const mapStateToProps = state => ({
 
 
 class ViewPage extends Component {
+    constructor(props) {
+        super(props) 
+        this.state = {
+            loggedIn: false
+        }
+    }
 
     deleteItem = (item) => {
         console.log('reached deleteItem', item, this.props.state.user);
@@ -24,24 +30,30 @@ class ViewPage extends Component {
     }
 
     componentDidMount() {
+        if (!this.props.state.user.isLoading && this.props.state.user.userName === null) {
+            this.setState({
+                loggedIn: false
+            });
+          }
+          else {
+              this.setState({
+                  loggedIn: true
+              })
+          }
         this.props.dispatch(fetchUser());
         this.props.dispatch({
             type: 'FETCH_SHELF'
         }); 
       }
     
-      componentDidUpdate() {
-        if (!this.props.state.user.isLoading && this.props.state.user.userName === null) {
-          this.props.history.push('home');
-        }
-      }
 
     render() {
         console.log(this.props.state.shelfReducer);
         let shelfItems = this.props.state.shelfReducer.shelfReducer.map((item)=>{
-            return (<ShelfItem  key={item.id} 
+            return (<ViewPageItem  key={item.id} 
                                 item={item}
-                                deleteItem={this.deleteItem}/>)
+                                deleteItem={this.deleteItem}
+                                loggedIn={this.state.loggedIn}/>)
         })
 
 
