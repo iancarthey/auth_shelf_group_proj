@@ -6,14 +6,19 @@ import TotalItem from './TotalItem/TotalItem.js'
 class TotalPage extends Component{
 
     componentDidMount(){
-        type:'FETCH_COUNT'
-    }
+        this.props.dispatch({
+            type:'FETCH_COUNT'
+    })
+}
     
     render( ){
-        let CountItem = this.props.state.shelfReducer.countReducer.map((item)=>{
+        let CountItem = this.props.reduxState.shelfReducer.countReducer.map((item)=>{
             return (<TotalItem  key={item.id} item={item} />)
         })
-        return (<ul>{CountItem}</ul>) 
+        return(<div>
+            <Nav/>
+        <ul>{CountItem}</ul>
+        </div>) 
     }
 }
 
