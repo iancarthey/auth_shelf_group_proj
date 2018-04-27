@@ -16,14 +16,17 @@ class ViewPageItem extends Component {
 
 
     render() {
-        
-
+        //show or hide delete button based on this.props.loggedIn 
+        let deleteButton; 
+        if(this.props.loggedIn) {
+            deleteButton = <button onClick={this.handleDeleteClick}>DELETE</button>
+        }
 
         return (
             <div className="viewItem">
                 <p>{this.props.item.description}</p>
                 <img src={this.props.item.image_url} height='200' width='200' alt={this.props.item.description}/>
-                <button onClick={this.handleDeleteClick}>DELETE</button>
+                {deleteButton}
             </div>
         )
     }
